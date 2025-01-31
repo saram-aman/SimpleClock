@@ -1,31 +1,31 @@
 html {
   --r: 56px; /* control the size */
-  --c1: #3FB8AF /*color 1*/ 99%,#0000 101%;
-  --c2: #FF9E9D /*color 2*/ 99%,#0000 101%;
+  --c1: #3FB8AF 99%, #0000 101%;
+  --c2: #FF9E9D 99%, #0000 101%;
   
-  --s:calc(var(--r)*.866);  /* .866 = cos(30deg) */
-  --g0:radial-gradient(var(--r),var(--c1));
-  --g1:radial-gradient(var(--r),var(--c2));
-  --f:radial-gradient(var(--r) at calc(100% + var(--s)) 50%,var(--c1));
-  --p:radial-gradient(var(--r) at 100% 50%,var(--c2));
+  --s: calc(var(--r) * .866); /* .866 = cos(30deg) */
+  --g0: radial-gradient(var(--r), var(--c1));
+  --g1: radial-gradient(var(--r), var(--c2));
+  --f: radial-gradient(var(--r) at calc(100% + var(--s)) 50%, var(--c1));
+  --p: radial-gradient(var(--r) at 100% 50%, var(--c2));
   background:
-    var(--f) 0 calc(-5*var(--r)/2),
-    var(--f) calc(-2*var(--s)) calc(var(--r)/2),
-    var(--p) 0 calc(-2*var(--r)),
-    var(--g0) var(--s) calc(-5*var(--r)/2),
-    var(--g1) var(--s) calc( 5*var(--r)/2),
-    radial-gradient(var(--r) at 100% 100%,var(--c1)) 0 calc(-1*var(--r)),   
-    radial-gradient(var(--r) at 0%   50% ,var(--c1)) 0 calc(-4*var(--r)),
-    var(--g1) calc(-1*var(--s)) calc(-7*var(--r)/2),
-    var(--g0) calc(-1*var(--s)) calc(-5*var(--r)/2),
-    var(--p) calc(-2*var(--s)) var(--r),
-    var(--g0) calc(-1*var(--s)) calc(var(--r)/ 2),
-    var(--g1) calc(-1*var(--s)) calc(var(--r)/-2),
-    var(--g0) 0 calc(-1*var(--r)),
-    var(--g1) var(--s) calc(var(--r)/-2),
-    var(--g0) var(--s) calc(var(--r)/ 2) 
-    #FF9E9D; /*color 2 again here (yes I got lazy defining a variable ) */
-  background-size: calc(4*var(--s)) calc(6*var(--r));
+    var(--f) 0 calc(-5 * var(--r) / 2),
+    var(--f) calc(-2 * var(--s)) calc(var(--r) / 2),
+    var(--p) 0 calc(-2 * var(--r)),
+    var(--g0) var(--s) calc(-5 * var(--r) / 2),
+    var(--g1) var(--s) calc(5 * var(--r) / 2),
+    radial-gradient(var(--r) at 100% 100%, var(--c1)) 0 calc(-1 * var(--r)),
+    radial-gradient(var(--r) at 0% 50%, var(--c1)) 0 calc(-4 * var(--r)),
+    var(--g1) calc(-1 * var(--s)) calc(-7 * var(--r) / 2),
+    var(--g0) calc(-1 * var(--s)) calc(-5 * var(--r) / 2),
+    var(--p) calc(-2 * var(--s)) var(--r),
+    var(--g0) calc(-1 * var(--s)) calc(var(--r) / 2),
+    var(--g1) calc(-1 * var(--s)) calc(var(--r) / -2),
+    var(--g0) 0 calc(-1 * var(--r)),
+    var(--g1) var(--s) calc(var(--r) / -2),
+    var(--g0) var(--s) calc(var(--r) / 2) 
+    #FF9E9D;
+  background-size: calc(4 * var(--s)) calc(6 * var(--r));
 }
 
 body {
@@ -35,38 +35,77 @@ body {
   align-items: center;
   height: 100vh;
   font-family: 'Arial', sans-serif;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+body.light {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+body.dark {
+  background-color: #000;
+  color: #fff;
 }
 
 .container {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .time {
-  font-size: 13rem;
-  color: white;
-  text-shadow: 2px 2px 4px #000000;
+  font-size: 10rem;
+  color: currentColor;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  transition: font-size 0.5s;
 }
 
 .date, .greeting {
   font-size: 2rem;
-  color: white;
-  text-shadow: 1px 1px 2px #000000;
+  color: currentColor;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+  transition: font-size 0.5s;
 }
 
 .theme-btn {
   margin: 5px;
-  padding: 10px;
+  padding: 10px 20px;
   font-size: 1rem;
   cursor: pointer;
+  background-color: #3fb8af;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
-.alarm {
-  margin-top: 20px;
+.theme-btn:hover {
+  background-color: #34a49e;
+  transform: scale(1.05);
 }
 
-.alarm-message {
-  display: none;
-  font-size: 1.5rem;
-  color: red;
-  margin-top: 10px;
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #3fb8af;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.theme-toggle:hover {
+  background-color: #34a49e;
+}
+
+@keyframes blink {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
