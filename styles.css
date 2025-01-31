@@ -46,3 +46,27 @@ body {
   color: white;
   text-shadow: 2px 2px 4px #000000;
 }
+
+.date, .greeting {
+  font-size: 2rem;
+  color: white;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.theme-btn {
+  margin: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.alarm {
+  margin-top: 20px;
+}
+
+.alarm-message {
+  display: none;
+  font-size: 1.5rem;
+  color: red;
+  margin-top: 10px;
+}

@@ -3,12 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time Display with Angel Numbers and Roses</title>
+    <title>Time</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="light">
     <div class="container">
-        <div class="time" id="time"></div>
+        <div id="time" class="time"></div>
+        <div id="date" class="date"></div>
+        <div id="greeting" class="greeting"></div>
+        <button id="toggle-theme" class="theme-btn">Toggle Theme</button>
+        <button id="toggle-display" class="theme-btn">Toggle Display</button>
+        <div class="alarm">
+            <input type="time" id="alarm-time">
+            <button id="set-alarm" class="theme-btn">Set Alarm</button>
+        </div>
+        <div id="alarm-message" class="alarm-message">Alarm! Time to wake up!</div>
     </div>
     <script src="script.js"></script>
 </body>
