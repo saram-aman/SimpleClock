@@ -14,7 +14,7 @@ function updateTime() {
     
     document.getElementById('time').textContent = `${hours}:${minutes} ${ampm}`;
     document.getElementById('date').textContent = `${day}/${month}/${year}`;
-    document.getElementById('greeting').textContent = greeting;
+    document.getElementById('greeting').textContent = greeting + ` Aman, hope you have a nice day, and all your wishes fullfilled!`;
 }
 
 function getGreeting(hours) {
